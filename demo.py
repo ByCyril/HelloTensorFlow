@@ -2,12 +2,8 @@
 
 import tensorflow as tf
 from tensorflow import keras
-import numpy as np
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 model = keras.Sequential()
-sess = tf.Session()
 
 input_layer = keras.layers.Dense(3, input_shape=[3], activation='tanh')
 model.add(input_layer)
