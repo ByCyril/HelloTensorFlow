@@ -30,7 +30,7 @@ model.fit(training_x, training_y, epochs=1000, steps_per_epoch=10)
 # Use a numpy array if you run into some trouble
 # text_x = np.array([[1, 0, 0]])
 text_x = tf.Variable([[1, 0, 0]])
-test_y = model.predict(text_x, verbose=0, steps=1)
+prediction = model.predict(text_x, verbose=0, steps=1)
 
 
-print(test_y)
+print(prediction)
