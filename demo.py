@@ -2,6 +2,7 @@
 
 import tensorflow as tf
 from tensorflow import keras
+import numpy as np 
 
 model = keras.Sequential()
 
@@ -15,14 +16,14 @@ gd = tf.train.GradientDescentOptimizer(0.01)
 
 model.compile(optimizer=gd, loss='mse')
 
-training_x = tf.Variable([[1, 1, 0], [1, 1, 1], [0, 1, 0], [-1, 1, 0], [-1, 0, 0], [-1, 0, 1],[0, 0, 1], [1, 1, 0], [1, 0, 0], [-1, 0, 0], [1, 0, 1], [0, 1, 1], [0, 0, 0], [-1, 1, 1]])
-training_y = tf.Variable([[0], [0], [1], [1], [1], [0], [1],[0], [1], [1], [1], [1], [1], [0]])
+training_x = np.array([[1, 1, 0], [1, 1, 1], [0, 1, 0], [-1, 1, 0], [-1, 0, 0], [-1, 0, 1],[0, 0, 1], [1, 1, 0], [1, 0, 0], [-1, 0, 0], [1, 0, 1], [0, 1, 1], [0, 0, 0], [-1, 1, 1]])
+training_y = np.array([[0], [0], [1], [1], [1], [0], [1],[0], [1], [1], [1], [1], [1], [0]])
 
 model.fit(training_x, training_y, epochs=1000, steps_per_epoch=10)
 # model.save_weights('demo_model.h5')
 # model.load_weights('demo_model.h5')
 
-text_x = tf.Variable([[1, 0, 0]])
+text_x = np.array([[1, 0, 0]])
 test_y = model.predict(text_x, verbose=0, steps=1)
 
 
